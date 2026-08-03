@@ -119,7 +119,8 @@ export default function MusicPlayer() {
         await audioRef.current.play()
         setIsPlaying(true)
       } catch {
-        // If browser blocks unprompted autoplay, start audio on first user click/touch/scroll anywhere on the page
+        setIsPlaying(false)
+        // If browser blocks unprompted autoplay, start audio on first user interaction anywhere on page
         const handleFirstInteraction = async () => {
           if (!audioRef.current) return
           try {
@@ -135,7 +136,7 @@ export default function MusicPlayer() {
             await audioRef.current.play()
             setIsPlaying(true)
           } catch {
-            // Ignore unhandled errors
+            setIsPlaying(false)
           }
           window.removeEventListener('pointerdown', handleFirstInteraction)
           window.removeEventListener('keydown', handleFirstInteraction)
@@ -354,6 +355,8 @@ export default function MusicPlayer() {
       <audio
         ref={audioRef}
         src={currentTrack.src}
+        onPlay={() => setIsPlaying(true)}
+        onPause={() => setIsPlaying(false)}
         onTimeUpdate={handleTimeUpdate}
         onLoadedMetadata={handleLoadedMetadata}
         onEnded={handleEnded}
