@@ -30,7 +30,7 @@ export const TRACKS: Track[] = [
   {
     id: 'midnight-coding',
     title: 'Midnight Coding',
-    artist: 'Krit Audio • Ambient',
+    artist: 'Ambient Soundscape',
     genre: 'Lo-Fi Chill',
     src: '/audio/midnight-coding.wav',
     coverColor: 'from-purple-600 via-indigo-600 to-blue-600',
@@ -38,7 +38,7 @@ export const TRACKS: Track[] = [
   {
     id: 'cyberpunk-chill',
     title: 'Cyberpunk Chill',
-    artist: 'Krit Audio • Synthwave',
+    artist: 'Synthwave',
     genre: 'Synthwave',
     src: '/audio/cyberpunk-chill.wav',
     coverColor: 'from-pink-600 via-purple-600 to-cyan-600',
@@ -46,7 +46,7 @@ export const TRACKS: Track[] = [
   {
     id: 'solar-drift',
     title: 'Solar Drift',
-    artist: 'Krit Audio • Deep Focus',
+    artist: 'Deep Focus',
     genre: 'Ambient Space',
     src: '/audio/solar-drift.wav',
     coverColor: 'from-amber-500 via-orange-600 to-rose-600',
