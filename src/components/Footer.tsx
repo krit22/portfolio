@@ -24,7 +24,7 @@ export default function Footer() {
 
           {/* LinkedIn */}
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/krit-kumar-9980a8319/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
@@ -37,7 +37,7 @@ export default function Footer() {
 
           {/* X (Twitter) */}
           <a
-            href="https://x.com"
+            href="https://x.com/Krit12007"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="X (Twitter)"
@@ -50,7 +50,7 @@ export default function Footer() {
 
           {/* Mail */}
           <a
-            href="mailto:krit@example.com"
+            href="mailto:kritkumar2@gmail.com"
             aria-label="Email"
             className="dark:text-neutral-400 text-neutral-600 dark:hover:text-white hover:text-black transition-colors cursor-pointer"
           >
