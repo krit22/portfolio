@@ -61,7 +61,7 @@ export default function ProjectsPage() {
     {
       name: "CheatCode CLI",
       description: "Stealth CLI AI Assistant powered by OpenRouter.",
-      href: "https://github.com/krit22/cheatcode",
+      href: "https://krit22.github.io/cheatcode",
       image: "bg-gradient-to-br from-emerald-500/20 to-teal-500/20",
       hoverBg: "from-emerald-500/10 to-teal-500/10"
     },

@@ -108,7 +108,7 @@ export default function Home() {
             </div>
             <div className="space-y-4">
               <a
-                href="https://github.com/krit22/cheatcode"
+                href="https://krit22.github.io/cheatcode"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group relative flex items-center justify-between rounded-lg border dark:border-white/10 border-black/10 dark:bg-white/5 bg-black/5 py-3 px-4 overflow-hidden transition-all duration-500 dark:hover:bg-white/10 hover:bg-black/10 hover:dark:border-white/20 hover:border-black/20 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-purple-500/10 cursor-pointer"
