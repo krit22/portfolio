@@ -372,57 +372,6 @@ export default function MusicPlayer() {
           onMouseLeave={handleMouseLeave}
         >
           <div className="w-[340px] sm:w-[380px] bg-neutral-950/90 dark:bg-black/90 backdrop-blur-2xl border border-white/15 rounded-3xl p-5 shadow-2xl text-white">
-            {/* Header Bar */}
-            <div className="flex items-center justify-between pb-3 border-b border-white/10">
-              <div className="flex items-center gap-2">
-                {/* Mini Siri Orb Icon in Header */}
-                <div className="w-5 h-5 rounded-full bg-gradient-to-tr from-cyan-400 via-purple-500 to-pink-500 animate-jelly-morph-reverse flex items-center justify-center shadow-sm">
-                  <div className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-                </div>
-                <span className="text-xs font-pixel uppercase tracking-wider text-neutral-300">
-                  Siri Ambient Player
-                </span>
-              </div>
-
-              <div className="flex items-center gap-1">
-                {/* Pin Player Toggle */}
-                <button
-                  onClick={() => setIsPinned(!isPinned)}
-                  className={`p-1.5 rounded-lg transition-colors cursor-pointer ${
-                    isPinned
-                      ? 'bg-purple-500/20 text-purple-400 border border-purple-500/30'
-                      : 'text-neutral-400 hover:text-white hover:bg-white/10'
-                  }`}
-                  title={isPinned ? 'Unpin Player' : 'Pin Player Open'}
-                >
-                  <Pin className="w-3.5 h-3.5" />
-                </button>
-                {/* Playlist Toggle */}
-                <button
-                  onClick={() => setShowPlaylist(!showPlaylist)}
-                  className={`p-1.5 rounded-lg transition-colors cursor-pointer ${
-                    showPlaylist
-                      ? 'bg-white/20 text-white'
-                      : 'text-neutral-400 hover:text-white hover:bg-white/10'
-                  }`}
-                  title="Playlist"
-                >
-                  <ListMusic className="w-3.5 h-3.5" />
-                </button>
-                {/* Close Button */}
-                <button
-                  onClick={() => {
-                    setIsPinned(false)
-                    setIsExpanded(false)
-                  }}
-                  className="p-1.5 rounded-lg text-neutral-400 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
-                  title="Minimize to Jelly Orb"
-                >
-                  <ChevronDown className="w-4 h-4" />
-                </button>
-              </div>
-            </div>
-
             {/* Playlist Drawer View */}
             {showPlaylist ? (
               <div className="py-4 space-y-2 max-h-[260px] overflow-y-auto pr-1 custom-scrollbar">
@@ -524,7 +473,7 @@ export default function MusicPlayer() {
                 </div>
 
                 {/* Progress Bar */}
-                <div className="space-y-1 mb-4">
+                <div className="space-y-0.5 mb-1">
                   <input
                     type="range"
                     min={0}
@@ -540,18 +489,31 @@ export default function MusicPlayer() {
                 </div>
 
                 {/* Controls Bar */}
-                <div className="flex items-center justify-between pt-1">
-                  <button
-                    onClick={() => setIsLooping(!isLooping)}
-                    className={`p-2 rounded-xl transition-colors cursor-pointer ${
-                      isLooping
-                        ? 'text-purple-400 bg-purple-500/10 border border-purple-500/20'
-                        : 'text-neutral-400 hover:text-white hover:bg-white/5'
-                    }`}
-                    title={isLooping ? 'Repeat: On' : 'Repeat: Off'}
-                  >
-                    <Repeat className="w-4 h-4" />
-                  </button>
+                <div className="flex items-center justify-between pt-0">
+                  <div className="flex items-center gap-1">
+                    <button
+                      onClick={() => setIsLooping(!isLooping)}
+                      className={`p-2 rounded-xl transition-colors cursor-pointer ${
+                        isLooping
+                          ? 'text-purple-400 bg-purple-500/10 border border-purple-500/20'
+                          : 'text-neutral-400 hover:text-white hover:bg-white/5'
+                      }`}
+                      title={isLooping ? 'Repeat: On' : 'Repeat: Off'}
+                    >
+                      <Repeat className="w-4 h-4" />
+                    </button>
+                    <button
+                      onClick={() => setShowPlaylist(!showPlaylist)}
+                      className={`p-2 rounded-xl transition-colors cursor-pointer ${
+                        showPlaylist
+                          ? 'bg-white/20 text-white'
+                          : 'text-neutral-400 hover:text-white hover:bg-white/5'
+                      }`}
+                      title="Playlist"
+                    >
+                      <ListMusic className="w-4 h-4" />
+                    </button>
+                  </div>
 
                   <div className="flex items-center gap-3">
                     <button
