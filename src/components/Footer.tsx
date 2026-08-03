@@ -1,20 +1,37 @@
 'use client'
 
-import React, { useState } from 'react'
-import { Mail, Copy, Check, ExternalLink } from 'lucide-react'
+import React, { useState, useRef } from 'react'
+import { Mail, Copy, Check } from 'lucide-react'
 
 export default function Footer() {
   const [copied, setCopied] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
+  const leaveTimerRef = useRef<NodeJS.Timeout | null>(null)
 
   const email = 'kritkumar2@gmail.com'
 
-  const handleCopy = (e: React.MouseEvent) => {
-    e.preventDefault()
-    e.stopPropagation()
+  const handleCopy = (e?: React.MouseEvent) => {
+    if (e) {
+      e.preventDefault()
+      e.stopPropagation()
+    }
     navigator.clipboard.writeText(email)
     setCopied(true)
     setTimeout(() => setCopied(false), 2000)
+  }
+
+  const handleMouseEnter = () => {
+    if (leaveTimerRef.current) {
+      clearTimeout(leaveTimerRef.current)
+      leaveTimerRef.current = null
+    }
+    setIsOpen(true)
+  }
+
+  const handleMouseLeave = () => {
+    leaveTimerRef.current = setTimeout(() => {
+      setIsOpen(false)
+    }, 450)
   }
 
   return (
@@ -64,24 +81,26 @@ export default function Footer() {
           {/* Mail Interactive Popover */}
           <div
             className="relative group"
-            onMouseEnter={() => setIsOpen(true)}
-            onMouseLeave={() => setIsOpen(false)}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
           >
             <button
               onClick={() => setIsOpen(!isOpen)}
               aria-label="Email"
-              className="dark:text-neutral-400 text-neutral-600 dark:hover:text-white hover:text-black transition-colors cursor-pointer flex items-center gap-1"
+              className="dark:text-neutral-400 text-neutral-600 dark:hover:text-white hover:text-black transition-colors cursor-pointer flex items-center gap-1 py-1"
             >
               <Mail className="w-4 h-4" />
             </button>
 
             {/* Glassy Popover Card */}
             <div
-              className={`absolute bottom-full left-0 mb-3 p-3 bg-neutral-900/95 dark:bg-black/95 backdrop-blur-xl border border-white/15 rounded-2xl shadow-2xl text-white transition-all duration-300 z-50 min-w-[260px] ${
+              className={`absolute bottom-full left-0 mb-1.5 p-3 bg-neutral-900/95 dark:bg-black/95 backdrop-blur-xl border border-white/15 rounded-2xl shadow-2xl text-white transition-all duration-300 z-50 min-w-[240px] ${
                 isOpen
                   ? 'opacity-100 scale-100 pointer-events-auto translate-y-0'
-                  : 'opacity-0 scale-95 pointer-events-none translate-y-2'
+                  : 'opacity-0 scale-95 pointer-events-none translate-y-1'
               }`}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
             >
               <div className="flex items-center justify-between gap-2 pb-2 mb-2 border-b border-white/10">
                 <span className="text-[11px] font-mono text-neutral-400 flex items-center gap-1.5">
@@ -95,33 +114,25 @@ export default function Footer() {
                 )}
               </div>
 
-              <div className="flex items-center justify-between gap-2 bg-white/5 border border-white/10 rounded-xl p-2">
-                <span className="text-xs font-mono text-neutral-200 select-all truncate">
+              <div
+                onClick={handleCopy}
+                className="flex items-center justify-between gap-3 bg-white/5 border border-white/10 rounded-xl p-2.5 hover:bg-white/10 hover:border-white/20 transition-all cursor-pointer group/copy"
+              >
+                <span className="text-xs font-mono text-neutral-200 truncate select-all">
                   {email}
                 </span>
 
-                <div className="flex items-center gap-1">
-                  <button
-                    onClick={handleCopy}
-                    className="p-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer"
-                    title="Copy Email"
-                  >
-                    {copied ? (
-                      <Check className="w-3.5 h-3.5 text-emerald-400" />
-                    ) : (
-                      <Copy className="w-3.5 h-3.5" />
-                    )}
-                  </button>
-                  <a
-                    href={`mailto:${email}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-1.5 rounded-lg bg-purple-500/20 hover:bg-purple-500/30 text-purple-300 transition-colors cursor-pointer"
-                    title="Open Email Client"
-                  >
-                    <ExternalLink className="w-3.5 h-3.5" />
-                  </a>
-                </div>
+                <button
+                  onClick={handleCopy}
+                  className="p-1.5 rounded-lg bg-purple-500/20 group-hover/copy:bg-purple-500/30 text-purple-300 transition-colors cursor-pointer flex-shrink-0"
+                  title="Copy Email to Clipboard"
+                >
+                  {copied ? (
+                    <Check className="w-3.5 h-3.5 text-emerald-400" />
+                  ) : (
+                    <Copy className="w-3.5 h-3.5" />
+                  )}
+                </button>
               </div>
             </div>
           </div>
