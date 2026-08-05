@@ -127,7 +127,7 @@ export default function ContributionsPage() {
                 CONTRIBUTIONS
               </h1>
               <p className="text-sm font-mono dark:text-neutral-400 text-neutral-500">
-                A dashboard of my merged open-source pull requests.
+                A dashboard of my merged open-source pull requests (InsForge YC25).
               </p>
             </div>
             <div className="h-px w-full bg-black/10 dark:bg-white/10" />
