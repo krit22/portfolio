@@ -121,6 +121,13 @@ export default function Home() {
                     <span className="text-neutral-500 mr-2">—</span>
                     <span>Stealth CLI AI Assistant powered by OpenRouter.</span>
                   </div>
+                  <div className="flex flex-wrap gap-1.5 mt-2">
+                    {["OpenRouter API", "OpenAI API", "Node.js", "React / Ink", "esbuild"].map((tag, idx) => (
+                      <span key={idx} className="px-2 py-0.5 rounded-full text-[10px] font-mono border dark:border-white/10 border-black/10 dark:bg-white/5 bg-black/5 dark:text-neutral-400 text-neutral-600">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
                 <div className="relative z-10 flex items-center gap-2">
                   <button
@@ -157,6 +164,13 @@ export default function Home() {
                     <span className="text-neutral-500 mr-2">—</span>
                     <span>An Open-Source Video Infrastructure Platform for Devs.</span>
                   </div>
+                  <div className="flex flex-wrap gap-1.5 mt-2">
+                    {["Next.js", "Express", "Prisma", "PostgreSQL", "Supabase", "Turborepo"].map((tag, idx) => (
+                      <span key={idx} className="px-2 py-0.5 rounded-full text-[10px] font-mono border dark:border-white/10 border-black/10 dark:bg-white/5 bg-black/5 dark:text-neutral-400 text-neutral-600">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
                 <div className="relative z-10 flex items-center gap-2">
                   <button
@@ -187,10 +201,31 @@ export default function Home() {
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="relative z-10 pr-4 flex-1">
-                  <div className="text-sm font-mono dark:text-neutral-300 text-neutral-700 leading-relaxed">
-                    <span className="text-base font-bold font-pixel dark:text-white text-black mr-2">Agently</span>
-                    <span className="text-neutral-500 mr-2">—</span>
+                  <div className="text-sm font-mono dark:text-neutral-300 text-neutral-700 leading-relaxed flex items-center flex-wrap gap-x-2 gap-y-1">
+                    <span className="text-base font-bold font-pixel dark:text-white text-black">Agently</span>
+                    <span className="inline-flex items-center gap-1.5 px-2 py-0.5 text-[10px] font-mono rounded-full border border-amber-500/40 bg-amber-500/10 text-amber-600 dark:text-amber-300">
+                      <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
+                      still building
+                    </span>
+                    <span className="text-neutral-500">—</span>
                     <span>Autonomous Customer Support Platform with Agentic Triage Loop.</span>
+                  </div>
+                  <div className="flex flex-wrap gap-1.5 mt-2">
+                    {["RAG", "AI Agent", "Hono", "Redis / BullMQ", "Supabase", "Clerk", "Next.js", "Stripe"].map((tag, idx) => {
+                      const isHighlighted = ["RAG", "AI Agent"].includes(tag)
+                      return (
+                        <span
+                          key={idx}
+                          className={`px-2 py-0.5 rounded-full text-[10px] font-mono border transition-colors ${
+                            isHighlighted
+                              ? "border-purple-500/40 dark:border-purple-400/50 bg-purple-500/15 dark:bg-purple-500/25 text-purple-600 dark:text-purple-300 font-semibold shadow-sm shadow-purple-500/20"
+                              : "dark:border-white/10 border-black/10 dark:bg-white/5 bg-black/5 dark:text-neutral-400 text-neutral-600"
+                          }`}
+                        >
+                          {tag}
+                        </span>
+                      )
+                    })}
                   </div>
                 </div>
                 <span className="relative z-10 dark:text-neutral-400 text-neutral-600 dark:group-hover:text-white group-hover:text-black transition-all duration-300 group-hover:rotate-45 group-hover:scale-110">
@@ -199,7 +234,7 @@ export default function Home() {
               </a>
 
               <a
-                href="https://github.com/krit22/GSSOC-issue-tracker"
+                href="https://gssoc-scanner.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group relative flex items-center justify-between rounded-lg border dark:border-white/10 border-black/10 dark:bg-white/5 bg-black/5 py-3 px-4 overflow-hidden transition-all duration-500 dark:hover:bg-white/10 hover:bg-black/10 hover:dark:border-white/20 hover:border-black/20 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-purple-500/10 cursor-pointer"
@@ -211,30 +246,78 @@ export default function Home() {
                     <span className="text-neutral-500 mr-2">—</span>
                     <span>Finds you all the available issues that are not yet claimed on autopilot.</span>
                   </div>
-                </div>
-                <span className="relative z-10 dark:text-neutral-400 text-neutral-600 dark:group-hover:text-white group-hover:text-black transition-all duration-300 group-hover:rotate-45 group-hover:scale-110">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
-                </span>
-              </a>
-
-              <a
-                href="https://github.com/krit22/streamflow"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative flex items-center justify-between rounded-lg border dark:border-white/10 border-black/10 dark:bg-white/5 bg-black/5 py-3 px-4 overflow-hidden transition-all duration-500 dark:hover:bg-white/10 hover:bg-black/10 hover:dark:border-white/20 hover:border-black/20 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-purple-500/10 cursor-pointer"
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="relative z-10 pr-4 flex-1">
-                  <div className="text-sm font-mono dark:text-neutral-300 text-neutral-700 leading-relaxed">
-                    <span className="text-base font-bold font-pixel dark:text-white text-black mr-2">Streamflow</span>
-                    <span className="text-neutral-500 mr-2">—</span>
-                    <span>An Open-Source Video Infrastructure Platform for Devs.</span>
+                  <div className="flex flex-wrap gap-1.5 mt-2">
+                    {["Python", "FastAPI", "React", "Vite", "Automation"].map((tag, idx) => (
+                      <span key={idx} className="px-2 py-0.5 rounded-full text-[10px] font-mono border dark:border-white/10 border-black/10 dark:bg-white/5 bg-black/5 dark:text-neutral-400 text-neutral-600">
+                        {tag}
+                      </span>
+                    ))}
                   </div>
                 </div>
-                <span className="relative z-10 dark:text-neutral-400 text-neutral-600 dark:group-hover:text-white group-hover:text-black transition-all duration-300 group-hover:rotate-45 group-hover:scale-110">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
-                </span>
+                <div className="relative z-10 flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      e.stopPropagation()
+                      window.open('https://github.com/krit22/GSSOC-issue-tracker', '_blank')
+                    }}
+                    title="GitHub Repository"
+                    className="p-1 rounded-md dark:text-neutral-400 text-neutral-600 dark:hover:text-white hover:text-black transition-colors cursor-pointer z-20"
+                  >
+                    <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                      <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+                    </svg>
+                  </button>
+                  <span className="p-1 rounded-md dark:text-neutral-400 text-neutral-600 dark:group-hover:text-white group-hover:text-black transition-all duration-300 group-hover:rotate-45 group-hover:scale-110">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+                  </span>
+                </div>
               </a>
+
+              {/* Portfolio */}
+              <a
+                href="https://portfolio-xi-sage-wrvh3ugxrm.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative flex items-center justify-between rounded-lg border dark:border-white/10 border-black/10 dark:bg-white/5 bg-black/5 py-3 px-4 overflow-hidden transition-all duration-500 dark:hover:bg-white/10 hover:bg-black/10 hover:dark:border-white/20 hover:border-black/20 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-purple-500/10 cursor-pointer block"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-rose-500/10 to-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="relative z-10 pr-4 flex-1">
+                  <div className="text-sm font-mono dark:text-neutral-300 text-neutral-700 leading-relaxed">
+                    <span className="text-base font-bold font-pixel dark:text-white text-black mr-2">Portfolio</span>
+                    <span className="text-neutral-500 mr-2">—</span>
+                    <span>This website. Built with Next.js.</span>
+                  </div>
+                  <div className="flex flex-wrap gap-1.5 mt-2">
+                    {["Next.js", "React", "TypeScript", "TailwindCSS", "GSAP", "Three.js"].map((tag, idx) => (
+                      <span key={idx} className="px-2 py-0.5 rounded-full text-[10px] font-mono border dark:border-white/10 border-black/10 dark:bg-white/5 bg-black/5 dark:text-neutral-400 text-neutral-600">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <div className="relative z-10 flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      e.stopPropagation()
+                      window.open('https://github.com/krit22/portfolio', '_blank')
+                    }}
+                    title="GitHub Repository"
+                    className="p-1 rounded-md dark:text-neutral-400 text-neutral-600 dark:hover:text-white hover:text-black transition-colors cursor-pointer z-20"
+                  >
+                    <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                      <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+                    </svg>
+                  </button>
+                  <span className="p-1 rounded-md dark:text-neutral-400 text-neutral-600 dark:group-hover:text-white group-hover:text-black transition-all duration-300 group-hover:rotate-45 group-hover:scale-110">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+                  </span>
+                </div>
+              </a>
+
             </div>
           </section>
 

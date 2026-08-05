@@ -103,6 +103,8 @@ export default function MusicPlayer() {
 
   // Autoplay on Mount with Graceful Browser Policy Fallback
   useEffect(() => {
+    let cleanupFunc = () => {}
+
     const startAutoplay = async () => {
       if (!audioRef.current) return
 
@@ -120,7 +122,7 @@ export default function MusicPlayer() {
         setIsPlaying(true)
       } catch {
         setIsPlaying(false)
-        // If browser blocks unprompted autoplay, start audio on first user interaction anywhere on page
+        // If browser blocks unprompted autoplay, start audio on first user click/tap anywhere on page
         const handleFirstInteraction = async () => {
           if (!audioRef.current) return
           try {
@@ -135,27 +137,25 @@ export default function MusicPlayer() {
             }
             await audioRef.current.play()
             setIsPlaying(true)
+            window.removeEventListener('pointerdown', handleFirstInteraction)
+            window.removeEventListener('keydown', handleFirstInteraction)
           } catch {
             setIsPlaying(false)
           }
-          window.removeEventListener('pointerdown', handleFirstInteraction)
-          window.removeEventListener('keydown', handleFirstInteraction)
-          window.removeEventListener('scroll', handleFirstInteraction)
         }
 
-        window.addEventListener('pointerdown', handleFirstInteraction, {
-          once: true,
-        })
-        window.addEventListener('keydown', handleFirstInteraction, {
-          once: true,
-        })
-        window.addEventListener('scroll', handleFirstInteraction, {
-          once: true,
-        })
+        window.addEventListener('pointerdown', handleFirstInteraction)
+        window.addEventListener('keydown', handleFirstInteraction)
+
+        cleanupFunc = () => {
+          window.removeEventListener('pointerdown', handleFirstInteraction)
+          window.removeEventListener('keydown', handleFirstInteraction)
+        }
       }
     }
 
     startAutoplay()
+    return () => cleanupFunc()
   }, [setupAudioContext])
 
   // Canvas audio visualizer loop
