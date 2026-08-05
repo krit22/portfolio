@@ -324,13 +324,10 @@ export default function Home() {
           <div id="contributions" className="w-full mt-8 space-y-6">
             <GithubGraph />
             <div className="pt-2">
-              <div className="flex items-center gap-2 mb-3">
-                <h3 className="text-lg font-bold font-pixel tracking-wide dark:text-neutral-200 text-neutral-800 uppercase">
-                  TOP CONTRIBUTIONS
+              <div className="flex items-center gap-2 mb-4">
+                <h3 className="text-xl font-bold font-pixel tracking-wide dark:text-neutral-200 text-neutral-800 uppercase">
+                  TOP CONTRIBUTIONS <span className="dark:text-neutral-400 text-neutral-500 font-pixel">(INSFORGE YC25)</span>
                 </h3>
-                <span className="text-xs font-mono dark:text-neutral-400 text-neutral-500 font-normal">
-                  (InsForge YC25)
-                </span>
               </div>
               <OpenSourcePRs />
             </div>

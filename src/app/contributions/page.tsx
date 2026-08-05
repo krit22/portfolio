@@ -124,10 +124,10 @@ export default function ContributionsPage() {
           <div className="flex flex-col items-center justify-center space-y-6 w-full">
             <div className="space-y-3 text-center">
               <h1 className="text-5xl md:text-6xl font-bold font-pixel tracking-widest dark:text-neutral-200 text-neutral-800 uppercase">
-                CONTRIBUTIONS
+                CONTRIBUTIONS <span className="text-2xl md:text-3xl font-pixel block sm:inline dark:text-neutral-400 text-neutral-500 font-normal mt-2 sm:mt-0">(INSFORGE YC25)</span>
               </h1>
               <p className="text-sm font-mono dark:text-neutral-400 text-neutral-500">
-                A dashboard of my merged open-source pull requests (InsForge YC25).
+                A dashboard of my merged open-source pull requests.
               </p>
             </div>
             <div className="h-px w-full bg-black/10 dark:bg-white/10" />
