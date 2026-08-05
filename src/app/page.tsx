@@ -326,8 +326,11 @@ export default function Home() {
             <div className="pt-2">
               <div className="flex items-center gap-2 mb-4">
                 <h3 className="text-xl font-bold font-pixel tracking-wide dark:text-neutral-200 text-neutral-800 uppercase">
-                  TOP CONTRIBUTIONS <span className="dark:text-neutral-400 text-neutral-500 font-pixel">(INSFORGE YC25)</span>
+                  TOP CONTRIBUTIONS
                 </h3>
+                <span className="text-sm font-mono dark:text-neutral-400 text-neutral-500 font-normal">
+                  (InsForge YC25)
+                </span>
               </div>
               <OpenSourcePRs />
             </div>
